@@ -154,6 +154,49 @@ export const constantRoutes = [
  */
 export const asyncRoutes = [
   {
+    path: '/changerole',
+    component: Layout,
+    redirect: '/permission/directive',
+    alwaysShow: true, // will always show the root menu
+    name: 'changerole',
+    meta: {
+      title: 'changeRole',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'directive',
+        component: () => import('@/views/permission/directive'),
+        name: 'DirectivePermission',
+        meta: {
+          title: 'Directive Permission'
+          // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'index',
+        name: 'test',
+        component: () => import('@/views/test/index'),
+        meta: {
+          title: 'List',
+          icon: 'form',
+          roles: ['editor']
+        }
+      },
+      {
+        path: 'index',
+        name: 'rendless',
+        component: () => import('@/views/rendless/index'),
+        meta: {
+          title: 'Form',
+          icon: 'form',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
+  {
     path: '/permission',
     component: Layout,
     redirect: '/permission/page',
