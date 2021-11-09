@@ -121,6 +121,18 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/rendless',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'rednless',
+        component: () => import('@/views/rendless/index'),
+        meta: { title: 'Rendless', icon: 'form' }
+      }
+    ]
+  },
+  {
     path: '/profile',
     component: Layout,
     redirect: '/profile/index',
