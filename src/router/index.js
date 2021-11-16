@@ -166,11 +166,11 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'directive',
-        component: () => import('@/views/permission/directive'),
+        path: 'changerole',
+        component: () => import('@/views/changerole/changeroles'),
         name: 'DirectivePermission',
         meta: {
-          title: 'Directive Permission'
+          title: 'Change Roles'
           // if do not set roles, means: this page does not require permission
         }
       },
