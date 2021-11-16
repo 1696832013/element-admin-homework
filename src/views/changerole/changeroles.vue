@@ -13,7 +13,7 @@
     <div :key="key" style="margin-top:30px;">
       <div>
         <span v-permission="['admin','editor']" class="permission-alert">
-          这是修改权限的页面
+          这是修改权限的页面，使用指令进行判断
         </span>
       </div>
 
@@ -23,6 +23,22 @@
 
       <div>
         <span v-permission="['editor']">你现在的权限为editor，显示的是List列表页面</span>
+      </div>
+    </div>
+
+    <div :key="'checkPermission'+key" style="margin-top:30px;">
+      <div>
+        <span v-if="checkPermission(['editor','admin'])" class="permission-alert">
+          这是修改权限的页面，使用函数进行判断
+        </span>
+      </div>
+
+      <div>
+        <span v-if="checkPermission(['admin'])">你现在的权限为admin，显示的是Form表单页面</span>
+      </div>
+
+      <div>
+        <span v-if="checkPermission(['editor'])">你现在的权限为editor，显示的是List列表页面</span>
       </div>
     </div>
   </div>
